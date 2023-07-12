@@ -1,5 +1,5 @@
 from flask import Flask, make_response, render_template, request
-import my_mongo
+#import my_mongo
 import json
 app = Flask(__name__)
 
@@ -20,15 +20,15 @@ def user():
     return 'my_mongo.mongo_test()'
 
 
-@app.route('/api/auth/login', methods=['POST', 'GET'])
-def login():
-    email = request.json.get('email')
-    password = request.json.get('password')
-    found = my_mongo.get_record('users', {'email': email})
-    print(found)
-    resp = make_response('OK')
-    resp.set_cookie('userID', 'coookzzzz')
-    return resp
+# @app.route('/api/auth/login', methods=['POST', 'GET'])
+# def login():
+#     email = request.json.get('email')
+#     password = request.json.get('password')
+#     found = my_mongo.get_record('users', {'email': email})
+#     print(found)
+#     resp = make_response('OK')
+#     resp.set_cookie('userID', 'coookzzzz')
+#     return resp
 
 
 if __name__ == "__main__":
